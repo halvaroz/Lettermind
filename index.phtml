@@ -1,0 +1,84 @@
+<section  class="section game" id="lettermind">
+	<div id="js-g-header" class="g-title shadow">
+		<h2 class="game-header">Lettermind</h2>
+	</div>
+	<div id="power" class="g-power" class="off">
+		<button id="light" class="g-light activebutton" aria-hidden="true">
+		</button>
+		<div id="js-g-rustine" class="rustine shadow"></div>
+	</div>
+	<div id="js-g-body" class="g-main shadow">
+		<div class="whole">
+			<div class='center'>
+				<div class="level">
+					<button  id="lvlchange" class="g-difficulty inactivebutton" disabled aria-hidden="true">
+					</button>
+					<p id="lvl" class="lvl-display green">Niveau I</p>
+				</div>
+				<div class="pregame">
+					<p id='play' class="g-description">
+						<button id="start" class="g-start inactivebutton" disabled aria-hidden="true"></button>
+					</p>
+					<button  id="instructions" class="g-instructions inactivebutton" disabled aria-hidden="true">
+					</button>
+					<button  id="topscores" class="g-topscores inactivebutton" onclick="openscore();event.preventDefault();" disabled aria-hidden="true"></button>
+					<button  id="infos" class="g-infos inactivebutton" disabled aria-hidden="true"></button>
+					<button  id="stats" class="g-stats inactivebutton" disabled aria-hidden="true"></button>		
+				</div>							
+				<div id="js-rules" class="pre-g pre-g-rules">
+					<ul>
+						<li>
+							<div class="thirtytwo-icon game-black-icon"></div>pour chaque lettre bien placée.
+						</li>
+						<li>
+							<div class="thirtytwo-icon game-white-icon"></div>pour chaque lettre mal placée.
+						</li>
+						<li>
+							<div class="thirtytwo-icon game-zero-icon"></div>si aucune lettre n'est dans la solution.
+						</li>
+						<li>Les mots autorisés sont ceux du Scrabble® (conjugaisons permises).</li>
+						<li>Le nombre de solutions possibles varie selon le niveau (voir infos).</li>
+						<li>La casse (minuscule/majuscule) et les accents sont sans importance.</li>
+					</ul>
+				</div>
+				<div id="js-further" class="pre-g pre-g-further">
+					<p >En mode <span class="red">difficile</span>, c'est parmi 7823 mots que peut se trouver la solution. Soit tout ceux autorisés au Scrabble®.<br/>Cette liste comporte 33 palindromes !</p>
+					<p >En mode <span class="yellow">intermédiaire</span>, la solution est parmi 2799 mots.</p>
+					<p >En mode <span class="green">facile</span>, la solution est parmi 1387 mots. Pas de conjugaison sauf infinitifs.</p>
+				</div>
+				<div id="js-stats" class="pre-g pre-g-stats"></div>
+			</div>
+			<hr>
+			<div class='flex'>
+				<?php $attempts = array('first','second','third', 'fourth','fifth', 'sixth','seventh', 'eighth','ninth', 'tenth' , 'eleventh', 'twelfth');
+				for($i = 1; $i < 13; $i++) : ?> 
+					<?php if(($i==1) ||($i==7)): ?>
+						<div class="g-half">
+					<?php endif ?>
+						<div class="<?=$i?> gameline" >
+							<label for="<?=$attempts[$i-1]?>"><?=$i?>.</label>
+							<input type="text" class="tentries <?=$attempts[$i-1]?>"  disabled>
+							<button class="js-g-validate game-button details" disabled id="<?=$attempts[$i-1]?>" value="Essai">
+								<img src="img/checkedb.svg" alt="Icone de validation d'une réponse"/>
+							</button>
+							<p class="result" id="<?=$attempts[$i-1]?>try" aria-hidden="true"></p>
+						</div>
+						<?php if(($i==6) ||($i==13)): ?>
+							</div>
+						<?php endif ?>
+				<?php  endfor ?>
+			</div>
+		</div>
+		<hr>
+		<div class="center">
+			<p class="result" id="answer"></p>
+			<div class="pregame" id="actions">
+				<button  id="help" class="g-help inactivebutton" disabled aria-hidden="true"></button>
+				<button id="newgame" class="g-newgame inactivebutton" disabled aria-hidden="true"></button>
+				<button id="giveup" class="g-giveup inactivebutton" disabled aria-hidden="true"></button>
+				<button  id="comments" class="g-comments inactivebutton" disabled aria-hidden="true"></button>
+			</div>
+		</div>
+		<div id="winners"></div>
+	</div>
+</section>

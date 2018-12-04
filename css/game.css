@@ -1,0 +1,288 @@
+.game-header {
+	background-color: rgba(18,98,142,0.8);
+	padding: 1rem 0;
+	border-radius: 1rem 1rem 0 0;
+	font-family: Courier, Arial, sans-serif;
+	margin: 0 25px 0.83em;
+	text-align: center;
+}
+
+.welcome{
+	position: relative;
+	right: 40px;
+	height: 75px;
+	margin: 0 auto 0;
+	line-height: 	75px;
+}
+
+.whole {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.result {
+	display: inline-block;
+	font-size: 2.2rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	vertical-align: top;
+	padding-top: 4px;
+	line-height: 1.70;
+}
+
+.g-title{	border-radius: 3rem 3rem 0 0;
+	height: 100%;
+	width: 100%;
+}
+
+.g-main {	border-radius: 0 0 3rem 3rem;}
+
+.rustine {
+	display: inline-block;
+	float: right;
+	text-align: center;
+	font-weight: bold;
+	font-size: 3rem;
+	height: 76px;
+	/*tentative vaine*/
+	display: table-cell;
+	vertical-align: middle;  
+
+	margin-top: 	0px;
+}
+
+.shadow {
+	z-index: 50;
+	background-color: black;
+	opacity: 0.3;
+	transition: opacity 3.8s;
+	transition-timing-function: ease-in;
+
+}
+
+.g-power {margin-bottom: -1px;}
+
+.game {
+	color: white;
+ 	background-color: #000;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2310cff7' fill-opacity='0.4'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	font-family: QuickSand, Arial, sans-serif;
+	font-size: 2.2rem;
+	border-radius: 3rem;
+	padding-bottom: 0.1rem;
+	border: 2px solid #065363;
+}
+
+.game button {
+  position: relative;
+  overflow: hidden;
+}
+
+.game .activebutton:after {
+  content: "";
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+}
+
+.game .activebutton:hover:after {
+  opacity: 1;
+  top: -30%;
+  left: -30%;
+  transition-property: left, top, opacity;
+  transition-duration: 0.7s, 0.7s, 0.15s;
+  transition-timing-function: ease;
+}
+
+.game .activebutton:active:after {  opacity: 0;}
+
+.g-light, .g-difficulty, .g-start,.g-instructions,.g-topscores,.g-infos,.g-stats,.g-help,.g-newgame,.g-giveup,.g-comments {
+	width: 80px;
+	height: 75px;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+
+	background-image: url('../img/css_sprites.png');
+	display: inline-block;
+}
+
+/*Sprite des icones du jeu*/
+
+.g-light {
+	background-position: -178px -94px ;
+	z-index: 30;
+} 
+
+.g-difficulty {	background-position: -262px -10px;} 
+.g-start {	background-position: -10px -10px ;}
+.g-instructions {	background-position: -10px -262px;}
+.g-topscores {	background-position: -178px -10px;}
+.g-infos {	background-position: -94px -94px ;}
+.g-stats {	background-position: -262px -94px;}
+.g-help {	background-position: -10px -94px ;}
+.g-newgame {	background-position: -10px -178px ;}
+.g-giveup {	background-position: -94px -262px ;}
+.g-comments {	background-position: -262px -178px ;}
+
+.error {	text-decoration: underline tomato;}
+
+.tentries {
+	width: 105px;
+	position: relative;
+	bottom: 7px;
+}
+
+.tries {	opacity:0;}
+
+.pre-g-rules, .pre-g-further {
+	display: none;
+	padding: 0.1rem;
+}
+
+.pre-g {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	background-color: #fff5cc;
+	color: black;
+	
+	font-family: QuickSand, Arial, sans-serif;
+	border-radius: 0.7rem;
+}
+
+.pre-g-rules ul {
+	margin: 0 auto;
+}
+
+.pre-g-rules li {
+	min-height: 40px;
+}
+
+.pre-g-stats li {
+	min-height: 40px;
+}
+
+.details {
+	color: white;
+	background-color: rgb(2,151,222);
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+
+.game-button img{	height: 42px;}
+
+.gameline {
+	max-width:400px;
+	display:inline-block;
+	padding-top: 0.3rem;
+}
+
+.gameline label {	line-height: 3rem;}
+
+.game-button {
+	height:46px;
+	width:46px;
+	padding: 0;
+	border-radius: 50%;
+	background-color: rgb(55,55,55);
+}
+
+.current {
+	color: black;
+	background-color: white;
+	border: 1px solid #a76a14;
+}
+
+.current .tentries {
+	background-color: black;
+	color:white;
+}
+
+.inactivebutton {	background-color: grey;}
+
+.activebutton {
+	cursor: pointer;
+	background-color: white;
+}
+
+.pregame button {	text-align: center;}
+
+.g-description { margin: 0;}
+
+.center {
+	display: block;
+	text-align: center;
+}
+
+.bg-white{
+	background-color: white;
+	color:black;
+}
+
+.bg-black{
+	background-color: black;
+	color:white;
+}
+
+
+
+.pregame button, .pregame p {
+	display: inline-block;
+	margin: 1rem;
+}
+
+.pregame p {	text-align: center;}
+
+span.bg-white {	padding: 0.5rem;}
+
+.congrats p, .congrats span {
+	display: block;
+}
+
+.congrats p {	padding: 1rem;}
+
+.firsts {	background-color: #fc852e;}
+
+.seconds {	background-color: #ebba16;}
+
+.lvl-display {
+	display: inline-block;
+	padding: 17px;
+	margin-bottom: 0;
+	margin-top: 0;
+	vertical-align: top;
+	font-size: 36px;
+	color: black;
+}
+
+.red {background-color: #e34;}
+
+.yellow{background-color: #fd5;}
+
+.green {background-color: #7b5;} 
+
+.hidden{display:none;}
+
+.nextPage, .prevPage {
+	height:40px;
+	width:40px;
+	padding: 0;
+	margin: 0.3rem;
+}
+
+.comments-content {
+	padding: 0.7rem;
+	margin-bottom: 1rem;
+	border-radius: 2rem;
+	border: 2px solid #d6aeef;
+}
